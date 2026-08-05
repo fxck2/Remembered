@@ -1,6 +1,6 @@
 import { CSS2DObject } from 'jsm/renderers/CSS2DRenderer.js';
 
-import { objectInfo }       from './objectInfo.js';
+import { ObjectInfo }       from './objectInfo.js';
 
 export const attachLabel = (mesh, info) => {
     const div = document.createElement('div');

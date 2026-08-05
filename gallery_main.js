@@ -12,25 +12,15 @@ const {scene, webglRenderer, labelRenderer, camera, controls, raycaster} = setup
 
 setupListeners();
 
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); 
+scene.add(ambientLight);
 
-// =================================================
-// testing to show a cube (removed in the future)
-const geometry = new THREE.BoxGeometry(1,1,1);
-const material = new THREE.MeshStandardMaterial({
-    color: 0xffffff,
-});
+let i1 = new ObjectInfo("picture 1", "image", "the first picture");
+let p1 = new ImgData("./pictures/p1.png", 411, 492, i1);
+let i2 = new ObjectInfo("picture 2", "image", "the second picture");
+let p2 = new ImgData("./pictures/p2.png", 421, 338, i2);
+let pic = [p1, p2];
 
-const cube1 = new THREE.Mesh(geometry, material);
-cube1.position.set(0,0,1);
-cube1.name = "cube1";
-cube1.userData.info = new ObjectInfo("c1", "cube");
-attachLabel(cube1, cube1.userData.info);
-scene.add(cube1);
-interactiveObjects.push(cube1);
-
-const hemiLight = new THREE.HemisphereLight(0x0099ff, 0xaa5500);
-scene.add(hemiLight);
-
-// =================================================
+createGallery(scene, pic);
 
 animate(scene, webglRenderer, labelRenderer, camera, controls, raycaster);

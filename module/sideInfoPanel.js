@@ -12,6 +12,5 @@ export const showSideInfoPanel = (info) => {
 }
 
 export const hideSideInfoPanel = () => {
-    console.log("remove side panel")
     sideInfoPanel.classList.remove("active");
 }

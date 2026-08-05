@@ -1,4 +1,4 @@
-export class objectInfo {
+export class ObjectInfo {
     #name;
     #type;
     #description;

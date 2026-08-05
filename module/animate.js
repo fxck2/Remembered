@@ -1,9 +1,9 @@
 import * as THREE from "three";
 
 import { interactiveObjects }                           from "./env.js";
-import { updateMovement }                               from "./move.js";
-import { objectInfo }                                   from "./objectInfo.js";
-import { showSideInfoPanel, hideSideInfoPanel }         from "./sideInfoPanel.js"    
+import { updateMovement, mousePressed }                 from "./move.js";
+import { ObjectInfo }                                   from "./objectInfo.js";
+import { showSideInfoPanel, hideSideInfoPanel }         from "./sideInfoPanel.js";
 
 export const animate = (scene, webglRenderer, labelRenderer, camera, controls, raycaster) => {
     requestAnimationFrame(() => animate(scene, webglRenderer, labelRenderer, camera, controls, raycaster));
@@ -15,6 +15,9 @@ export const animate = (scene, webglRenderer, labelRenderer, camera, controls, r
     if (intersects.length > 0 && intersects[0].distance < 3) {
         const targetObject = intersects[0].object;
         showSideInfoPanel(targetObject.userData.info);
+        if (mousePressed[0]) {
+            window.location.assign("./gallery.html");
+        }
     }else{
         hideSideInfoPanel();
     }

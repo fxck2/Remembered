@@ -1,0 +1,31 @@
+#side-info-panel {
+    /* 固定在畫面左上角 */
+    position: fixed;
+    top: 50px;
+    left: 20px;
+    width: 15%;
+    
+    /* 視覺樣式設定 */
+    background: rgba(10, 10, 10, 0.85);
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 5px solid #00ff88; /* 左側亮色邊框裝飾 */
+    font-family: sans-serif;
+    
+    /* 滑鼠穿透，確保不影響 FPS 射擊 */
+    pointer-events: none;
+    
+    /* 預設隱藏與動畫設定 */
+    opacity: 0;
+    transform: translateX(-20px); /* 隱藏時稍微往左退 */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#side-info-panel.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+#side-info-panel h2 { margin: 0 0 10px 0; font-size: 24px; color: #cccccc; }
+#side-info-panel p { margin: 5px 0; font-size: 14px; color: #cccccc; }
